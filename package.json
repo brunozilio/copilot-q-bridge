@@ -4,16 +4,37 @@
   "description": "Use Amazon Q (via Builder ID) as a model inside GitHub Copilot Chat",
   "version": "0.1.0",
   "publisher": "copilot-q-bridge",
-  "engines": { "vscode": "^1.95.0" },
-  "categories": ["AI"],
-  "activationEvents": ["onStartupFinished"],
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "AI"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       { "command": "copilotQ.signIn",  "title": "Amazon Q: Sign In" },
       { "command": "copilotQ.signOut", "title": "Amazon Q: Sign Out" },
       { "command": "copilotQ.status",  "title": "Amazon Q: Show Auth Status" }
-    ]
+    ],
+    "configuration": {
+      "title": "Amazon Q Bridge",
+      "properties": {
+        "copilotQ.startUrl": {
+          "type": "string",
+          "default": "",
+          "description": "Your IAM Identity Center start URL (e.g. https://my-org.awsapps.com/start). Leave empty to use Builder ID."
+        },
+        "copilotQ.ssoRegion": {
+          "type": "string",
+          "default": "us-east-1",
+          "description": "AWS region of your IAM Identity Center instance."
+        }
+      }
+    }
   },
   "scripts": {
     "compile": "tsc -p ./",
