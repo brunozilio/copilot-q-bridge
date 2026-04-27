@@ -1,0 +1,37 @@
+{
+  "name": "copilot-q-bridge",
+  "displayName": "Amazon Q for Copilot Chat",
+  "description": "Use Amazon Q (via Builder ID) as a model inside GitHub Copilot Chat",
+  "version": "0.1.0",
+  "publisher": "copilot-q-bridge",
+  "engines": { "vscode": "^1.95.0" },
+  "categories": ["AI"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      { "command": "copilotQ.signIn",  "title": "Amazon Q: Sign In" },
+      { "command": "copilotQ.signOut", "title": "Amazon Q: Sign Out" },
+      { "command": "copilotQ.status",  "title": "Amazon Q: Show Auth Status" }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package",
+    "lint": "eslint src --ext ts"
+  },
+  "dependencies": {
+    "@aws-sdk/client-sso-oidc": "^3.600.0",
+    "@aws-sdk/credential-providers": "^3.600.0",
+    "@smithy/types": "^3.0.0",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/uuid": "^9.0.0",
+    "@types/vscode": "^1.95.0",
+    "typescript": "^5.4.0",
+    "@vscode/vsce": "^2.24.0"
+  }
+}
