@@ -46,7 +46,7 @@
     "@aws-sdk/client-sso-oidc": "^3.600.0",
     "@aws-sdk/credential-providers": "^3.600.0",
     "@smithy/types": "^3.0.0",
-    "uuid": "^9.0.0"
+    "uuid": "^14.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
